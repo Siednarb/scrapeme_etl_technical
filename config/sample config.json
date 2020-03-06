@@ -1,0 +1,13 @@
+{
+    "storage" : "local",
+    "scrape" : {
+        "url template" : "http://books.toscrape.com/catalogue/page-{}.html",
+        "start page" : 1,
+        "end page" : 50
+    },
+    "S3 credentials" : {
+        "bucket name" : "",
+        "AWS access key" : "",
+        "AWS secret" : ""
+    }
+}
