@@ -15,4 +15,16 @@ def dataValidationAssert(assertBool,errorMessage,fileNumber,bookData):
     
     if not assertBool:
         bookTitle = bookData['Title'] if 'Title' in bookData else ''
+        generateErrorLog(errorMessage,fileNumber,bookTitle)
         raise Exception(errorMessage + f' [fileNumber={fileNumber}][bookTitle={bookTitle}]')
+
+def generateErrorLog(errorMessage,fileNumber,bookTitle):
+
+    errorJson = {
+        "message"    : errorMessage,
+        "fileNumber" : fileNumber,
+        "bookTitle"  : bookTitle
+    }
+
+    with open(f"./error/{datetime.datetime.now()}",'w') as f:
+        json.dump(errorJson,f,indent=4)
