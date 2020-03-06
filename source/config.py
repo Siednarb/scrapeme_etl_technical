@@ -5,7 +5,7 @@ def getConfigField(*configFieldNames):
     pass each field as a new argument (eg: to get config['scrape']['url template']
     use getConfigField('scrape','url template')'''
 
-    with open('./config.json','r') as f:
+    with open('./config/config.json','r') as f:
         config = json.load(f)
 
     if len(configFieldNames)==1:
