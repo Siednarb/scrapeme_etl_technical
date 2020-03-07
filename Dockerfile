@@ -4,7 +4,7 @@ MAINTAINER Kyle Horn
 WORKDIR /app
 
 # create the conda-based environment
-RUN conda install --yes python=3 requests boto tqdm
+RUN conda install --yes python=3 requests boto3 tqdm
 RUN pip install bs4
 
 COPY ./ /app/
