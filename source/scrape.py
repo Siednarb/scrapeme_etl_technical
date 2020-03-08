@@ -41,9 +41,10 @@ def scrapeDataSubPages(fileNumber,bookDataList):
     return bookDataList
 
 def getMainPageHTML(isTest,fileNumber):
-    if isTest:
+    if isTest:    
         with open("./test/test_page.html",'r') as f:
-            return f.read()
+            text = f.read()
+        return text
     else:
         response = requests.get(getConfigField('scrape','url template').format(fileNumber))
         dataValidationAssert(response.status_code==200,f"ERROR: Page did not load correctly (status code {response.status_code})",fileNumber,{})
@@ -95,10 +96,15 @@ def extractBookThumbnailURL(book,bookData,fileNumber):
     bookDataList.append(bookData)
 
 def getBookSubPage(bookData,fileNumber,isTest):
-    url = "http://books.toscrape.com/catalogue/"+bookData['Sub-Page Link']
-    response = requests.get(url)
-    dataValidationAssert(response.status_code==200,f"ERROR: Book sub-page did not load correctly (status code {response.status_code})",fileNumber,bookData)
-    return response.text
+    if isTest:
+        with open("./test/sub_test_page.html",'r') as f:
+            text = f.read()
+        return text
+    else:
+        url = "http://books.toscrape.com/catalogue/"+bookData['Sub-Page Link']
+        response = requests.get(url)
+        dataValidationAssert(response.status_code==200,f"ERROR: Book sub-page did not load correctly (status code {response.status_code})",fileNumber,bookData)
+        return response.text
 
 def getBookSubPageSoup(bookData):
     return bs4.BeautifulSoup(bookData['Sub-Page Raw HTML'],features='html.parser')

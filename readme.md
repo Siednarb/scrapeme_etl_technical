@@ -26,7 +26,7 @@ To build the project, simply run `sh build.sh` at the root folder of the project
 
 ## 5. Testing
 
-TODO
+To run the project test cases, use `sh test.sh` after building the docker container. This will perform testing inside the same container used for deployment.
 
 ## 6. Deployment
 
