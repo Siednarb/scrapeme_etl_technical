@@ -15,7 +15,7 @@ def getNextFileNumberToScrape():
     then simply return None'''
 
     init,final = getConfigField('scrape','start page'),getConfigField('scrape','end page')
-    fileTemplate = "./data/Kyle_Horn_books_{init}_of_{final}.csv".format(init='{}',final=final)
+    fileTemplate = "./data/Kyle_Horn_books_{init}_of_{final}".format(init='{}',final=final)
     allFileNumbers = [ fileTemplate for fileNumber in range(init,final+1) ]
     if getConfigField('storage') == 'local':
         targetFileNumbers = [ fileNumber
