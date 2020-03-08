@@ -50,6 +50,7 @@ NOTE: If you need sudo permissions to run docker, then you'll need to run `sudo`
 
 ### 7.a Descriptions for config.json fields
 
+```
 {
     "storage" : The storage location for the data. This can be set either to "local" or "s3". It is case-sensitive.
     "scrape" : {
@@ -63,11 +64,13 @@ NOTE: If you need sudo permissions to run docker, then you'll need to run `sudo`
         "AWS secret" : A 40 digit secret key (that should not normally be shared!) to access the S3 bucket.
     }
 }
+```
 
 ### 7.b Descriptions for saved data fields
 
 Saved files are in standard comma-separated CSV format. The columns are as follows, with data type in parentheses:
 
+```
 "Available"            : Whether or not the book is available for purchase (bool)
 "Inventory"            : The number of available books for purchase (int)
 "Full Photo URL"       : The url for the enlarged image of the book (string)
@@ -82,6 +85,7 @@ Saved files are in standard comma-separated CSV format. The columns are as follo
 "Sub-Page Link"        : The link to navigate to the book's individual page (string)
 "Sub-Page Raw HTML"    : A raw text dump of the HTML for the book's individual page (string)
 "UPC"                  : The Universal Product Code for the given book (string)
+```
 
 ## 8. Miscellaneous Design Decisions
 
